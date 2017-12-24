@@ -1,0 +1,6 @@
+framework module Pods_HinkhojTests {
+  umbrella header "Pods-HinkhojTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
