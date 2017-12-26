@@ -9,7 +9,8 @@
 import UIKit
 
 class SearchTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var btnExpand: CustomButton!
     @IBOutlet weak var lblMeaning: UILabel!
     @IBOutlet weak var lblHtraslitate: UILabel!
     @IBOutlet weak var btnSpeak: UIButton!

@@ -56,6 +56,7 @@ class SearchViewController: BaseViewController, UITextFieldDelegate, UITableView
     var arrAntonym = NSMutableArray()
     
     var selecteTab: WordMeaningSectionType = .meaning
+    var selctedIndexPaths = [IndexPath]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +75,10 @@ class SearchViewController: BaseViewController, UITextFieldDelegate, UITableView
 
     @IBAction func back_TouchUpInside(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func btnMic_TouchUpInside(_ sender: Any) {
+        
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {

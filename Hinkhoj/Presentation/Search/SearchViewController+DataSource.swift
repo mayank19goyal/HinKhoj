@@ -31,7 +31,14 @@ extension SearchViewController {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        if selecteTab == .meaning {
+            if selctedIndexPaths.contains(indexPath) {
+                return UITableViewAutomaticDimension
+            }
+            return 60
+        } else {
+            return UITableViewAutomaticDimension
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -42,6 +49,10 @@ extension SearchViewController {
                     if let word = dict["hin_word"] as? String {
                         cell.lblMeaning.text = word
                     }
+                    
+                    cell.btnExpand.indexPath = indexPath
+                    cell.btnExpand.addTarget(self, action: #selector(btnExpand_TouchUpInside), for: .touchUpInside)
+                    
                     if let word = dict["htraslitate"] as? String {
                         cell.lblHtraslitate.text = "pr. {" + word + "}"
                         cell.btnSpeak.tag = 2000 + indexPath.row
@@ -128,5 +139,21 @@ extension SearchViewController {
                 self.textToSpeech(word)
             }
         }
+    }
+    
+    @objc func btnExpand_TouchUpInside(sender: CustomButton) {
+        if let indexPath = sender.indexPath {
+            if selctedIndexPaths.contains(indexPath) {
+                for i in 0..<selctedIndexPaths.count {
+                    if indexPath == selctedIndexPaths[i] {
+                        selctedIndexPaths.remove(at: i)
+                    }
+                }
+            } else {
+                selctedIndexPaths.append(indexPath)
+            }
+        }
+        
+        self.tblViewSearch.reloadData()
     }
 }

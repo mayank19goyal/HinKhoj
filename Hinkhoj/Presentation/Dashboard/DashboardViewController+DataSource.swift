@@ -38,6 +38,7 @@ extension DashboardViewController {
                 cell.lblFullDate.text = format.string(from: Date())
                 
                 cell.btnShare.addTarget(self, action: #selector(btnShare_TouchUpInside), for: .touchUpInside)
+                cell.btnReadMore.addTarget(self, action: #selector(btnReadMore_TouchUpInside), for: .touchUpInside)
             }
             
             cell.backgroundColor = UIColor.clear
@@ -58,5 +59,12 @@ extension DashboardViewController {
             activityItems: ["Sahre"],
             applicationActivities: nil)
         present(activityViewController, animated: true, completion: nil)
+    }
+    
+    @objc func btnReadMore_TouchUpInside() {
+        let storyboard = UIStoryboard(name: "Hinkhoj", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "wordOfDayViewController") as? WordOfDayViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }

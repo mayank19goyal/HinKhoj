@@ -18,6 +18,10 @@
 		A814536C1FDEBD3E00E70F4D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A814536B1FDEBD3D00E70F4D /* CoreLocation.framework */; };
 		A814536E1FDEBD4A00E70F4D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A814536D1FDEBD4A00E70F4D /* CoreGraphics.framework */; };
 		A81453701FDEBD8800E70F4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A814536F1FDEBD8800E70F4D /* GoogleService-Info.plist */; };
+		A85E35E81FF141E700C38220 /* WordOfDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85E35E71FF141E700C38220 /* WordOfDayViewController.swift */; };
+		A85E35EA1FF1430A00C38220 /* WordOfDayViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85E35E91FF1430A00C38220 /* WordOfDayViewController+DataSource.swift */; };
+		A85E35ED1FF1445A00C38220 /* WODFirstTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85E35EC1FF1445A00C38220 /* WODFirstTableViewCell.swift */; };
+		A85E35EF1FF1446A00C38220 /* WODSecondTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85E35EE1FF1446A00C38220 /* WODSecondTableViewCell.swift */; };
 		A861C3131FDD84C800CBB4F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A861C3121FDD84C800CBB4F6 /* Assets.xcassets */; };
 		A861C3211FDD84C800CBB4F6 /* HinkhojTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A861C3201FDD84C800CBB4F6 /* HinkhojTests.swift */; };
 		A861C32C1FDD84C900CBB4F6 /* HinkhojUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A861C32B1FDD84C900CBB4F6 /* HinkhojUITests.swift */; };
@@ -31,6 +35,7 @@
 		A86639451FEEC6DE00A894B4 /* ScrollHeaderDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86639441FEEC6DD00A894B4 /* ScrollHeaderDashboardViewController.swift */; };
 		A86639471FEF529100A894B4 /* DashboardViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86639461FEF529100A894B4 /* DashboardViewController+DataSource.swift */; };
 		A866394A1FEF5E1000A894B4 /* WordOfDayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86639491FEF5E1000A894B4 /* WordOfDayTableViewCell.swift */; };
+		A866394E1FEFE70600A894B4 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A866394D1FEFE70600A894B4 /* CustomButton.swift */; };
 		A88BEA8D1FE04AEB008460C9 /* DashboardViewController+Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88BEA8C1FE04AEB008460C9 /* DashboardViewController+Services.swift */; };
 		A88BEA8F1FE053E1008460C9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88BEA8E1FE053E1008460C9 /* AVFoundation.framework */; };
 		A88BEA921FE0E19B008460C9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88BEA911FE0E19B008460C9 /* SearchViewController.swift */; };
@@ -95,6 +100,10 @@
 		A814536B1FDEBD3D00E70F4D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A814536D1FDEBD4A00E70F4D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A814536F1FDEBD8800E70F4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A85E35E71FF141E700C38220 /* WordOfDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordOfDayViewController.swift; sourceTree = "<group>"; };
+		A85E35E91FF1430A00C38220 /* WordOfDayViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WordOfDayViewController+DataSource.swift"; sourceTree = "<group>"; };
+		A85E35EC1FF1445A00C38220 /* WODFirstTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WODFirstTableViewCell.swift; sourceTree = "<group>"; };
+		A85E35EE1FF1446A00C38220 /* WODSecondTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WODSecondTableViewCell.swift; sourceTree = "<group>"; };
 		A861C3081FDD84C800CBB4F6 /* Hinkhoj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hinkhoj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A861C3121FDD84C800CBB4F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A861C3171FDD84C800CBB4F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -114,6 +123,7 @@
 		A86639441FEEC6DD00A894B4 /* ScrollHeaderDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollHeaderDashboardViewController.swift; sourceTree = "<group>"; };
 		A86639461FEF529100A894B4 /* DashboardViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DashboardViewController+DataSource.swift"; sourceTree = "<group>"; };
 		A86639491FEF5E1000A894B4 /* WordOfDayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordOfDayTableViewCell.swift; sourceTree = "<group>"; };
+		A866394D1FEFE70600A894B4 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		A88BEA8C1FE04AEB008460C9 /* DashboardViewController+Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DashboardViewController+Services.swift"; sourceTree = "<group>"; };
 		A88BEA8E1FE053E1008460C9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A88BEA911FE0E19B008460C9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -212,6 +222,7 @@
 				A81453591FDEB5F700E70F4D /* Hinkhoj-Bridging-Header.h */,
 				A8E936FB1FE0180700F770C7 /* String+Utility.swift */,
 				A8E936FA1FE0180700F770C7 /* Utils.swift */,
+				A866394D1FEFE70600A894B4 /* CustomButton.swift */,
 				A8E937021FE01AB200F770C7 /* UIApplication+Utilities.swift */,
 				A814536F1FDEBD8800E70F4D /* GoogleService-Info.plist */,
 				A8B4B2991FDEFD000056D308 /* search_loader.gif */,
@@ -241,6 +252,25 @@
 				A8B4B28D1FDEE8E40056D308 /* SplashViewController.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		A85E35E61FF141D400C38220 /* WordOfDay */ = {
+			isa = PBXGroup;
+			children = (
+				A85E35EB1FF1444800C38220 /* Cell */,
+				A85E35E71FF141E700C38220 /* WordOfDayViewController.swift */,
+				A85E35E91FF1430A00C38220 /* WordOfDayViewController+DataSource.swift */,
+			);
+			path = WordOfDay;
+			sourceTree = "<group>";
+		};
+		A85E35EB1FF1444800C38220 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A85E35EC1FF1445A00C38220 /* WODFirstTableViewCell.swift */,
+				A85E35EE1FF1446A00C38220 /* WODSecondTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		A861C2FF1FDD84C800CBB4F6 = {
@@ -310,6 +340,7 @@
 		A861C33C1FDD898B00CBB4F6 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				A85E35E61FF141D400C38220 /* WordOfDay */,
 				A86639381FED4E9700A894B4 /* ScrollView */,
 				A88BEA901FE0E162008460C9 /* Search */,
 				A8E937091FE0257500F770C7 /* TableHeaderView */,
@@ -767,16 +798,21 @@
 				A81453541FDEB31B00E70F4D /* LoginViewController+Facebook.swift in Sources */,
 				A88BEA941FE0E1C1008460C9 /* SearchViewController+Services.swift in Sources */,
 				A86639471FEF529100A894B4 /* DashboardViewController+DataSource.swift in Sources */,
+				A85E35E81FF141E700C38220 /* WordOfDayViewController.swift in Sources */,
 				A81453571FDEB3BC00E70F4D /* AppSetting.swift in Sources */,
 				A81453681FDEB7E400E70F4D /* HinkhojLogs.swift in Sources */,
+				A866394E1FEFE70600A894B4 /* CustomButton.swift in Sources */,
 				A8E936F21FE015DD00F770C7 /* BaseService.swift in Sources */,
 				A81453631FDEB70B00E70F4D /* LoadingSpinnerView.swift in Sources */,
 				A8B4B2981FDEFC5C0056D308 /* iOSDevCenters+GIF.swift in Sources */,
 				A8B4B28C1FDEE8870056D308 /* BaseViewController.swift in Sources */,
 				A866393C1FEE2D4400A894B4 /* SearchViewController+DataSource.swift in Sources */,
+				A85E35EA1FF1430A00C38220 /* WordOfDayViewController+DataSource.swift in Sources */,
+				A85E35EF1FF1446A00C38220 /* WODSecondTableViewCell.swift in Sources */,
 				A866394A1FEF5E1000A894B4 /* WordOfDayTableViewCell.swift in Sources */,
 				A861C33B1FDD897300CBB4F6 /* AppDelegate.swift in Sources */,
 				A88BEA8D1FE04AEB008460C9 /* DashboardViewController+Services.swift in Sources */,
+				A85E35ED1FF1445A00C38220 /* WODFirstTableViewCell.swift in Sources */,
 				A8E937031FE01AB200F770C7 /* UIApplication+Utilities.swift in Sources */,
 				A86639431FEE43CF00A894B4 /* SearchTableViewCell.swift in Sources */,
 				A814536A1FDEBB8F00E70F4D /* LoginViewController+Google.swift in Sources */,
@@ -945,11 +981,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 79RRCW8LAN;
 				INFOPLIST_FILE = Hinkhoj/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.medicare.iosmedicare;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hinkhoj.ioshinkhoj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hinkhoj/Common/Hinkhoj-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -963,11 +1002,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 79RRCW8LAN;
 				INFOPLIST_FILE = Hinkhoj/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.medicare.iosmedicare;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hinkhoj.ioshinkhoj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hinkhoj/Common/Hinkhoj-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
