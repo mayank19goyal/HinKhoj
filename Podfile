@@ -17,6 +17,12 @@ target 'Hinkhoj' do
     pod 'Firebase', '~> 4.0.0'
     pod 'Firebase/Messaging'
     
+    pod 'FMDB'
+    # pod 'FMDB/FTS'   # FMDB with FTS
+    # pod 'FMDB/standalone'   # FMDB with latest SQLite amalgamation source
+    # pod 'FMDB/standalone/FTS'   # FMDB with latest SQLite amalgamation source and FTS
+    # pod 'FMDB/SQLCipher'   # FMDB with SQLCipher
+    
   target 'HinkhojTests' do
     inherit! :search_paths
     # Pods for testing

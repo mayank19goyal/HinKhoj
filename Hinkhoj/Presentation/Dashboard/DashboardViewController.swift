@@ -52,6 +52,8 @@ class DashboardViewController: BaseViewController, UITextFieldDelegate, ScrollHe
         self.navigationController?.isNavigationBarHidden = false
         tblDashboard.separatorColor = UIColor.clear
         scrollHeaderViewController?.designButtoninScrollView(arrButton: [DashoardSectionType.updates.headerText(), DashoardSectionType.learn.headerText(), DashoardSectionType.tools.headerText(), DashoardSectionType.practice.headerText()])
+        
+        self.wordOfDayService()
     }
     
     @objc func navigateToSearch(_ text: String) {

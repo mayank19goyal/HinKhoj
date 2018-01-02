@@ -47,6 +47,9 @@
 		A8B4B2961FDEF0A50056D308 /* SideMenuTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B4B2951FDEF0A50056D308 /* SideMenuTableView.swift */; };
 		A8B4B2981FDEFC5C0056D308 /* iOSDevCenters+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B4B2971FDEFC5C0056D308 /* iOSDevCenters+GIF.swift */; };
 		A8B4B29A1FDEFD000056D308 /* search_loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = A8B4B2991FDEFD000056D308 /* search_loader.gif */; };
+		A8BE2C581FFBD36800ADEFAC /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BE2C571FFBD36800ADEFAC /* CardView.swift */; };
+		A8BE2C5B1FFBDE3D00ADEFAC /* hkdict.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A8BE2C5A1FFBDE3D00ADEFAC /* hkdict.sqlite */; };
+		A8BE2C5F1FFBEBE500ADEFAC /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BE2C5E1FFBEBE500ADEFAC /* DBManager.swift */; };
 		A8E936F21FE015DD00F770C7 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E936F01FE015DC00F770C7 /* BaseService.swift */; };
 		A8E936F31FE015DD00F770C7 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E936F11FE015DD00F770C7 /* ErrorHandler.swift */; };
 		A8E936F51FE015E300F770C7 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E936F41FE015E200F770C7 /* WebService.swift */; };
@@ -135,6 +138,9 @@
 		A8B4B2951FDEF0A50056D308 /* SideMenuTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableView.swift; sourceTree = "<group>"; };
 		A8B4B2971FDEFC5C0056D308 /* iOSDevCenters+GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iOSDevCenters+GIF.swift"; sourceTree = "<group>"; };
 		A8B4B2991FDEFD000056D308 /* search_loader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = search_loader.gif; sourceTree = "<group>"; };
+		A8BE2C571FFBD36800ADEFAC /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		A8BE2C5A1FFBDE3D00ADEFAC /* hkdict.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = hkdict.sqlite; sourceTree = "<group>"; };
+		A8BE2C5E1FFBEBE500ADEFAC /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		A8E936F01FE015DC00F770C7 /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		A8E936F11FE015DD00F770C7 /* ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		A8E936F41FE015E200F770C7 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
@@ -224,6 +230,7 @@
 				A8E936FA1FE0180700F770C7 /* Utils.swift */,
 				A866394D1FEFE70600A894B4 /* CustomButton.swift */,
 				A8E937021FE01AB200F770C7 /* UIApplication+Utilities.swift */,
+				A8BE2C571FFBD36800ADEFAC /* CardView.swift */,
 				A814536F1FDEBD8800E70F4D /* GoogleService-Info.plist */,
 				A8B4B2991FDEFD000056D308 /* search_loader.gif */,
 			);
@@ -298,6 +305,7 @@
 		A861C30A1FDD84C800CBB4F6 /* Hinkhoj */ = {
 			isa = PBXGroup;
 			children = (
+				A8BE2C591FFBDE3500ADEFAC /* Database */,
 				A8E936EF1FE015CD00F770C7 /* WebAccessLayer */,
 				A814535E1FDEB69100E70F4D /* BusinessLayer */,
 				A81453551FDEB3B800E70F4D /* Common */,
@@ -438,6 +446,15 @@
 				A8B4B2951FDEF0A50056D308 /* SideMenuTableView.swift */,
 			);
 			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		A8BE2C591FFBDE3500ADEFAC /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				A8BE2C5A1FFBDE3D00ADEFAC /* hkdict.sqlite */,
+				A8BE2C5E1FFBEBE500ADEFAC /* DBManager.swift */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 		A8E936EF1FE015CD00F770C7 /* WebAccessLayer */ = {
@@ -589,6 +606,7 @@
 				A861C3441FDD89E700CBB4F6 /* LaunchScreen.storyboard in Resources */,
 				A81453701FDEBD8800E70F4D /* GoogleService-Info.plist in Resources */,
 				A8B4B2901FDEEE9F0056D308 /* Hinkhoj.storyboard in Resources */,
+				A8BE2C5B1FFBDE3D00ADEFAC /* hkdict.sqlite in Resources */,
 				A861C3131FDD84C800CBB4F6 /* Assets.xcassets in Resources */,
 				A861C3431FDD89E700CBB4F6 /* Main.storyboard in Resources */,
 				A8B4B29A1FDEFD000056D308 /* search_loader.gif in Resources */,
@@ -623,6 +641,7 @@
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -638,6 +657,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -798,6 +818,7 @@
 				A81453541FDEB31B00E70F4D /* LoginViewController+Facebook.swift in Sources */,
 				A88BEA941FE0E1C1008460C9 /* SearchViewController+Services.swift in Sources */,
 				A86639471FEF529100A894B4 /* DashboardViewController+DataSource.swift in Sources */,
+				A8BE2C5F1FFBEBE500ADEFAC /* DBManager.swift in Sources */,
 				A85E35E81FF141E700C38220 /* WordOfDayViewController.swift in Sources */,
 				A81453571FDEB3BC00E70F4D /* AppSetting.swift in Sources */,
 				A81453681FDEB7E400E70F4D /* HinkhojLogs.swift in Sources */,
@@ -820,6 +841,7 @@
 				A8E937011FE0193700F770C7 /* UIViewController+Utilities.swift in Sources */,
 				A8E936F71FE016AF00F770C7 /* LoginViewController+Services.swift in Sources */,
 				A8B4B2931FDEF07C0056D308 /* DashboardViewController.swift in Sources */,
+				A8BE2C581FFBD36800ADEFAC /* CardView.swift in Sources */,
 				A81453611FDEB69800E70F4D /* FacebookUser.swift in Sources */,
 				A8E936F31FE015DD00F770C7 /* ErrorHandler.swift in Sources */,
 				A86639451FEEC6DE00A894B4 /* ScrollHeaderDashboardViewController.swift in Sources */,

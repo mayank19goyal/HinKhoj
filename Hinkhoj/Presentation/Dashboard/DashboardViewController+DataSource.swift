@@ -32,8 +32,8 @@ extension DashboardViewController {
             if let cell = cell as? WordOfDayTableViewCell {
                 let format = DateFormatter()
                 format.dateFormat = "dd MMM"
-                cell.lblDate.text = format.string(from: Date())
-                cell.lblDate.layer.cornerRadius = 25.0
+                //cell.lblDate.text = format.string(from: Date())
+                //cell.lblDate.layer.cornerRadius = 25.0
                 format.dateFormat = "MMM dd, yyyy"
                 cell.lblFullDate.text = format.string(from: Date())
                 

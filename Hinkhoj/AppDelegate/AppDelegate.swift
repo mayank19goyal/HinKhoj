@@ -46,6 +46,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             HinkhojLogs("could not start reachability notifier")
         }
         
+        // Create Database instance
+        _ = DBManager.shared.createDatabase()
+        
         return true
     }
 

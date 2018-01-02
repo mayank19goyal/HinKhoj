@@ -19,6 +19,7 @@ class WordOfDayTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.lblDate.layer.cornerRadius = lblDate.frame.size.width / 2
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

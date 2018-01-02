@@ -64,4 +64,35 @@ extension SearchViewController {
             }
         })
     }
+    
+    func searchByWordOffline(_ word: String) {
+        if DBManager.shared.openDatabase() {
+            let query = "select hword,eword,egrammar,hep.rid,ewi.eid from " +
+                "englishwordinfo as ewi inner join hindienglishpair " +
+                "as hep on hep.eid=ewi.eid inner join hindiwordinfo as " +
+                "hwi on hwi.hid=hep.hid inner join meaningattributes as " +
+                "ma on ma.rid=hep.rid  where LOWER(ewi.eword) like '" + word + "%' " +
+            "order by LENGTH(eword) asc, hep.rating desc LIMIT 0,25";
+            
+            do {
+                let results = try DBManager.shared.database.executeQuery(query, values: nil)
+                self.arrWordMeanings.removeAllObjects()
+                while results.next() == true {
+                    var dict = [String: Any]()
+                    if let hword = results.string(forColumn: "hword") {
+                        dict["hin_word"] = hword
+                    }
+                    if let eword = results.string(forColumn: "eword") {
+                        dict["htraslitate"] = eword
+                    }
+                    
+                    self.arrWordMeanings.add(dict)
+                }
+                self.tblViewSearch.reloadData()
+            }
+            catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
