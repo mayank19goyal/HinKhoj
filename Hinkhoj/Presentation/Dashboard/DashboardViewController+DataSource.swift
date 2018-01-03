@@ -16,10 +16,11 @@ extension DashboardViewController {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if selecteTab == .updates {
-            return 1
-        } else {
-            return 0
+            if (dictWOD != nil) {
+                return 1
+            }
         }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -30,15 +31,31 @@ extension DashboardViewController {
         if selecteTab == .updates {
             let cell = tableView.dequeueReusableCell(withIdentifier: "wordOfDayTableViewCell", for: indexPath)
             if let cell = cell as? WordOfDayTableViewCell {
-                let format = DateFormatter()
-                format.dateFormat = "dd MMM"
-                //cell.lblDate.text = format.string(from: Date())
-                //cell.lblDate.layer.cornerRadius = 25.0
-                format.dateFormat = "MMM dd, yyyy"
-                cell.lblFullDate.text = format.string(from: Date())
-                
-                cell.btnShare.addTarget(self, action: #selector(btnShare_TouchUpInside), for: .touchUpInside)
-                cell.btnReadMore.addTarget(self, action: #selector(btnReadMore_TouchUpInside), for: .touchUpInside)
+                if let dictWord = dictWOD {
+                    let format = DateFormatter()
+                    if let strDate = dictWord["date"] as? String {
+                        format.dateFormat = "yyyy-MM-dd"
+                        if let date = format.date(from: strDate) {
+                            format.dateFormat = "dd MMM"
+                            cell.lblDate.text = format.string(from: date)
+                            cell.lblDate.layer.cornerRadius = 25.0
+                            format.dateFormat = "MMM dd, yyyy"
+                            cell.lblFullDate.text = format.string(from: date)
+                        }
+                    }
+                    
+                    if let word = dictWord["word"] as? String {
+                        cell.lblEngWord.text = word
+                    }
+                    
+                    if let hin_word = dictWord["hin_word"] as? String {
+                        cell.lblHindWord.text = hin_word
+                    }
+                    
+                    cell.btnShare.addTarget(self, action: #selector(btnShare_TouchUpInside), for: .touchUpInside)
+                    cell.btnReadMore.addTarget(self, action: #selector(btnReadMore_TouchUpInside), for: .touchUpInside)
+
+                }
             }
             
             cell.backgroundColor = UIColor.clear
@@ -64,6 +81,9 @@ extension DashboardViewController {
     @objc func btnReadMore_TouchUpInside() {
         let storyboard = UIStoryboard(name: "Hinkhoj", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "wordOfDayViewController") as? WordOfDayViewController {
+            if let dictWord = dictWOD {
+                vc.dictWordOfDay = dictWord
+            }
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

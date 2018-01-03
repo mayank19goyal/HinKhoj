@@ -88,14 +88,14 @@ class SearchViewController: BaseViewController, UITextFieldDelegate, UITableView
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         if let text = textField.text {
-            self.searchByWordOffline(text)
+            self.searchByWord(text)
         }
         return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if let text = textField.text {
-            self.searchByWordOffline(text)
+            self.searchByWord(text)
         }
     }
     

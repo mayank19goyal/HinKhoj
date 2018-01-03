@@ -50,6 +50,7 @@
 		A8BE2C581FFBD36800ADEFAC /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BE2C571FFBD36800ADEFAC /* CardView.swift */; };
 		A8BE2C5B1FFBDE3D00ADEFAC /* hkdict.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A8BE2C5A1FFBDE3D00ADEFAC /* hkdict.sqlite */; };
 		A8BE2C5F1FFBEBE500ADEFAC /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BE2C5E1FFBEBE500ADEFAC /* DBManager.swift */; };
+		A8C0BA911FFCC829006FE4A1 /* WebViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C0BA901FFCC829006FE4A1 /* WebViewTableViewCell.swift */; };
 		A8E936F21FE015DD00F770C7 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E936F01FE015DC00F770C7 /* BaseService.swift */; };
 		A8E936F31FE015DD00F770C7 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E936F11FE015DD00F770C7 /* ErrorHandler.swift */; };
 		A8E936F51FE015E300F770C7 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E936F41FE015E200F770C7 /* WebService.swift */; };
@@ -141,6 +142,7 @@
 		A8BE2C571FFBD36800ADEFAC /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		A8BE2C5A1FFBDE3D00ADEFAC /* hkdict.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = hkdict.sqlite; sourceTree = "<group>"; };
 		A8BE2C5E1FFBEBE500ADEFAC /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		A8C0BA901FFCC829006FE4A1 /* WebViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewTableViewCell.swift; sourceTree = "<group>"; };
 		A8E936F01FE015DC00F770C7 /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		A8E936F11FE015DD00F770C7 /* ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		A8E936F41FE015E200F770C7 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 			children = (
 				A85E35EC1FF1445A00C38220 /* WODFirstTableViewCell.swift */,
 				A85E35EE1FF1446A00C38220 /* WODSecondTableViewCell.swift */,
+				A8C0BA901FFCC829006FE4A1 /* WebViewTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -853,6 +856,7 @@
 				A8E937001FE0193700F770C7 /* UIViewController+Alerts.swift in Sources */,
 				A8E937081FE0213100F770C7 /* ProfileTableViewCell.swift in Sources */,
 				A8B4B2961FDEF0A50056D308 /* SideMenuTableView.swift in Sources */,
+				A8C0BA911FFCC829006FE4A1 /* WebViewTableViewCell.swift in Sources */,
 				A88BEA921FE0E19B008460C9 /* SearchViewController.swift in Sources */,
 				A866393A1FED4ED500A894B4 /* ScrollHeaderViewController.swift in Sources */,
 			);
@@ -1014,7 +1018,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Hinkhoj/Common/Hinkhoj-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1034,7 +1038,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hinkhoj/Common/Hinkhoj-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

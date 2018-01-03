@@ -17,8 +17,8 @@ class BaseService {
     private let session: URLSession = {
         let config = URLSessionConfiguration.default
         config.requestCachePolicy = NSURLRequest.CachePolicy.useProtocolCachePolicy
-        config.timeoutIntervalForRequest = TimeInterval(90)
-        config.timeoutIntervalForResource = TimeInterval(90)
+        config.timeoutIntervalForRequest = TimeInterval(60)
+        config.timeoutIntervalForResource = TimeInterval(60)
         return URLSession(configuration: config)
     }()
     
@@ -40,6 +40,7 @@ class BaseService {
                     request.httpBody = jsonData
                 }
                 
+                request.allHTTPHeaderFields = ["Content-Type": "application/json"]
                 let task = session.dataTask(with: request as URLRequest) {data, response, error in
                     do {
                         if let data = data {
@@ -57,6 +58,34 @@ class BaseService {
                                             let error = NSError(domain: "", code: status, userInfo: nil)
                                             completionHandler(nil, error)
                                         }
+                                    }
+                                }
+                            } else {
+                                if let jsonArr = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSArray {
+                                    HinkhojLogs(jsonArr.description)
+                                    var statuscode :NSInteger?
+                                    if let httpResponse = response as? HTTPURLResponse {
+                                        statuscode = httpResponse.statusCode
+                                        if statuscode == 200 {
+                                            if jsonArr.count > 0 {
+                                                if let dict = jsonArr[0] as? NSDictionary {
+                                                    completionHandler(dict, nil)
+                                                } else {
+                                                    completionHandler(nil, nil)
+                                                }
+                                            } else {
+                                                completionHandler(nil, nil)
+                                            }
+                                        } else {
+                                            if let error = error {
+                                                completionHandler(nil, error as NSError)
+                                            }
+                                        }
+                                    }
+                                } else {
+                                    if let error = error {
+                                        HinkhojLogs(error.localizedDescription)
+                                        completionHandler(nil, error as NSError)
                                     }
                                 }
                             }

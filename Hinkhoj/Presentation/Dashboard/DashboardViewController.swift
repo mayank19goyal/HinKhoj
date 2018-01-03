@@ -44,6 +44,7 @@ class DashboardViewController: BaseViewController, UITextFieldDelegate, ScrollHe
     
     weak var scrollHeaderViewController: ScrollHeaderDashboardViewController?
     var selecteTab: DashoardSectionType = .updates
+    var dictWOD: [String: Any]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
