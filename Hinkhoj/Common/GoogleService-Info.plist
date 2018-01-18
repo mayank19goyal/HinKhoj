@@ -7,11 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>319556287209-sa0b7mgreflb2guvt1988hi3bk57v21d.apps.googleusercontent.com</string>
+	<string>319556287209-hepuu43q8kfnfri6jrd1e4kfh2tb4b58.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.319556287209-sa0b7mgreflb2guvt1988hi3bk57v21d</string>
-	<key>ANDROID_CLIENT_ID</key>
-	<string>319556287209-cepoa3aal2fb0mjvactusfer7vjmhjco.apps.googleusercontent.com</string>
+	<string>com.googleusercontent.apps.319556287209-hepuu43q8kfnfri6jrd1e4kfh2tb4b58</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBJStB06RZ1u1w3GOcEefd441v2KEf4A-o</string>
 	<key>GCM_SENDER_ID</key>
@@ -19,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.hinkhoj.udaiMeena</string>
+	<string>com.hinkhoj.ioshinkhoj</string>
 	<key>PROJECT_ID</key>
 	<string>third-flare-864</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,13 +27,13 @@
 	<key>IS_ANALYTICS_ENABLED</key>
 	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<false></false>
 	<key>IS_GCM_ENABLED</key>
 	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:319556287209:ios:8a8372b13046a912</string>
+	<string>1:319556287209:ios:8a1b542673befd6c</string>
 	<key>DATABASE_URL</key>
 	<string>https://third-flare-864.firebaseio.com</string>
 </dict>

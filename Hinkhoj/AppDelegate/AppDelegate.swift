@@ -7,16 +7,19 @@
 //
 
 import UIKit
+import UserNotifications
 import FBSDKCoreKit
 import ReachabilitySwift
 import GoogleMobileAds
+import Firebase
+import FirebaseMessaging
 
 var appDelegate: AppDelegate {
     return UIApplication.shared.delegate as! AppDelegate
 }
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
     var reachability = Reachability()!

@@ -18,6 +18,8 @@ class SearchTableViewCell: UITableViewCell {
     @IBOutlet weak var lblUsage: UILabel!
     @IBOutlet weak var lblUsageValue: UILabel!
     @IBOutlet weak var lblFirstWord: UILabel!
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SideMenu
 
 class SideMenuTableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -67,7 +68,7 @@ class SideMenuTableView: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 150
+            return UITableViewAutomaticDimension
         } else {
             return 60
         }
@@ -105,7 +106,7 @@ class SideMenuTableView: UIViewController, UITableViewDelegate, UITableViewDataS
                 }
             }
             return cell
-        } else {
+        } else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "DashboardCell", for: indexPath)
             if let cell = cell as? DashboardTableViewCell {
                 cell.lblTitle.text = arrMenu[indexPath.row]
@@ -119,9 +120,18 @@ class SideMenuTableView: UIViewController, UITableViewDelegate, UITableViewDataS
             
             return cell
         }
+        
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndexPath = indexPath
+        
+        if indexPath.section == 1 {
+            let storyboard = UIStoryboard(name: "Hinkhoj", bundle: nil)
+            if let vc = storyboard.instantiateViewController(withIdentifier: "myDictionaryViewController") as? MyDictionaryViewController {
+                SideMenuManager.menuLeftNavigationController?.pushViewController(vc, animated: true)
+            }
+        }
     }
 }

@@ -17,22 +17,15 @@ enum NotificationType: String {
 extension AppDelegate {
     
     func registerForPushNotifications(_ application: UIApplication) {
-        // Parse Configuration
-        /*let parseConfiguration = ParseClientConfiguration { (ParseMutableClientConfiguration) in
-         ParseMutableClientConfiguration.applicationId = "a989f547-c2c1-4a6c-bbe9-ec891c402e72"
-         ParseMutableClientConfiguration.clientKey = "hshZAbOVzV3Or3U2JSWYMXvMklXlLz4B"
-         ParseMutableClientConfiguration.server = "https://parse.buddy.com/parse"
-         }
-         Parse.initialize(with: parseConfiguration)*/
-        
         FirebaseApp.configure()
-        
+
         // Notification
         if #available(iOS 10, *) {
             let center = UNUserNotificationCenter.current()
             center.requestAuthorization(options: [.alert, .badge, .sound], completionHandler: {
                 (success: Bool, _) in
                 if success {
+                    center.delegate = self
                     DispatchQueue.main.async {
                         UIApplication.shared.registerForRemoteNotifications()
                     }
@@ -43,6 +36,23 @@ extension AppDelegate {
             application.registerUserNotificationSettings(notificationSettings)
         }
         
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().delegate = self
+        } else {
+            // Fallback on earlier versions
+        }
+        Messaging.messaging().delegate = self
+        Messaging.messaging().shouldEstablishDirectChannel = false
+        listenForDirectChannelStateChanges();
+        NotificationsController.configure()
+    }
+    
+    func listenForDirectChannelStateChanges() {
+        NotificationCenter.default.addObserver(self, selector: #selector(onMessagingDirectChannelStateChanged(_:)), name: .MessagingConnectionStateChanged, object: nil)
+    }
+    
+    @objc func onMessagingDirectChannelStateChanged(_ notification: Notification) {
+        print("FCM Direct Channel Established: \(Messaging.messaging().isDirectChannelEstablished)")
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -60,21 +70,13 @@ extension AppDelegate {
             defaults.synchronize()
             
             print("Device Token: %@", tokenString)
+            Messaging.messaging().apnsToken = deviceToken
+            #if RELEASE_VERSION
+            Messaging.messaging().setAPNSToken(deviceToken, type: MessagingAPNSTokenType.prod)
+            #else
             Messaging.messaging().setAPNSToken(deviceToken, type: MessagingAPNSTokenType.sandbox)
+            #endif
         }
-        
-        // Parse
-        /*let installation = PFInstallation.current()
-         installation?.setDeviceTokenFrom(deviceToken)
-         installation?.saveInBackground()
-         
-         PFPush.subscribeToChannel(inBackground: "") { succeeded, error in
-         if succeeded {
-         print("ParseStarterProject successfully subscribed to push notifications on the broadcast channel.\n")
-         } else {
-         print("ParseStarterProject failed to subscribe to push notifications on the broadcast channel with error = %@.\n", error!)
-         }
-         }*/
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -83,6 +85,16 @@ extension AppDelegate {
         } else {
             HinkhojLogs("application:didFailToRegisterForRemoteNotificationsWithError:\n")
         }
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        HinkhojLogs("\n \n APNS - Received Remote Notification *************************** \n\n")
+        if let info = userInfo as? [String: AnyObject] {
+            HinkhojLogs("\n APNS info - *************************** \n \(info) \n ***************************\n")
+        }
+        
+        Messaging.messaging().appDidReceiveMessage(userInfo)
+        completionHandler(UIBackgroundFetchResult.newData)
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
@@ -96,7 +108,7 @@ extension AppDelegate {
                 return
             }
             
-            guard let dictAps = info["aps"] as? [String:AnyObject] else {
+            guard let dictAps = info["word_data"] as? [String:AnyObject] else {
                 return
             }
             
@@ -104,21 +116,30 @@ extension AppDelegate {
             default:
                 break
             }
-            
-            // Parse
-            /*PFPush.handle(userInfo)
-             if application.applicationState == UIApplicationState.inactive {
-             PFAnalytics.trackAppOpened(withRemoteNotificationPayload: userInfo)
-             }*/
         }
     }
     
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        print("Firebase registration token: \(fcmToken)")
+        
+        // TODO: If necessary send token to application server.
+        // Note: This callback is fired at each app startup and whenever a new token is generated.
+    }
+
     func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
         print("Firebase registration token: \(fcmToken)")
     }
     
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
         print("Received data message: \(remoteMessage.appData)")
+        
+        if let userInfo = remoteMessage.appData as? [AnyHashable: Any] {
+            if let info = userInfo as? [String: AnyObject] {
+                if let dictMessage = info["message"] as? [String: AnyObject] {
+                    HinkhojLogs("\n APNS info - *************************** \n \(dictMessage) \n ***************************\n")
+                }
+            }
+        }
     }
     
     // This method will be called when app received push notifications in foreground
@@ -140,5 +161,16 @@ extension AppDelegate {
             [UNNotificationPresentationOptions.alert,
              UNNotificationPresentationOptions.sound,
              UNNotificationPresentationOptions.badge])
+    }
+}
+
+extension Dictionary {
+    /// Utility method for printing Dictionaries as pretty-printed JSON.
+    var jsonString: String? {
+        if let jsonData = try? JSONSerialization.data(withJSONObject: self, options: [.prettyPrinted]),
+            let jsonString = String(data: jsonData, encoding: .utf8) {
+            return jsonString
+        }
+        return nil
     }
 }

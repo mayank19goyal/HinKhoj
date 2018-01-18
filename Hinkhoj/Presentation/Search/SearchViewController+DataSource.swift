@@ -61,15 +61,16 @@ extension SearchViewController {
                     
                     cell.lblUsageValue.isHidden = false
                     cell.lblUsage.isHidden = false
+                    cell.lblUsage.text = "Usage:"
                     
                     if let word = dict["eng_example"] as? String, !word.isEmpty {
                         cell.lblUsageValue.text = word
                     } else {
+                        cell.lblUsageValue.text = ""
+                        cell.lblUsage.text = ""
                         cell.lblUsageValue.isHidden = true
                         cell.lblUsage.isHidden = true
                     }
-                    
-                    
                 }
             }
             
