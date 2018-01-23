@@ -28,7 +28,7 @@ extension LoginViewController {
             bodyString = String(format: "name=%@&email=%@&system_id=%@&facebook_tokenId=%@", name, email, deviceID, id)
         }
         let urlPath = String(format: registerUser, bodyString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!)
-        BaseService.sharedInstance.executeService(urlPath: urlPath, httpMethodType: "GET", body: nil, completionHandler: { (result, error) in
+        BusinessLayerManager.sharedInstance.executeService(urlPath: urlPath, httpMethodType: "GET", body: nil, completionHandler: { (result, error) in
             
             DispatchQueue.main.async {
                 self.hideLoadingPopup()

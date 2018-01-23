@@ -86,6 +86,9 @@ fileprivate func titleAndMessageForErrorCode(_ errorCode: Int) -> (String, Strin
     case -1010:
         title = "Error".localize()
         message = "URL is not correct".localize()
+    case -2010:
+        title = "Error".localize()
+        message = "Data does't exist in database".localize()
 
     // Service/business logic errors
     default:

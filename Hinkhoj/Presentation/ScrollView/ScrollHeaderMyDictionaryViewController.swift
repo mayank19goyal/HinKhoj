@@ -1,23 +1,23 @@
 //
-//  ScrollHeaderViewController.swift
+//  ScrollHeaderMyDictionaryViewController.swift
 //  Hinkhoj
 //
-//  Created by Mayank Goyal on 22/12/17.
-//  Copyright © 2017 Ankur Jain. All rights reserved.
+//  Created by Mayank Goyal on 23/01/18.
+//  Copyright © 2018 Ankur Jain. All rights reserved.
 //
 
 import UIKit
 
-class ScrollHeaderViewController: UIViewController {
+class ScrollHeaderMyDictionaryViewController: UIViewController {
 
     @IBOutlet weak var scrlButton: UIScrollView!
     var arrButtonScroll: [String]?
     
-    weak var headerDelegate: ScrollHeaderDelegate?
+    weak var headerDelegate: ScrollHeaderMyDictionaryDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -67,7 +67,7 @@ class ScrollHeaderViewController: UIViewController {
         label.sizeToFit()
         return label.frame
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -68,4 +68,12 @@ class DBManager: NSObject {
         
         return false
     }
+    
+    func executeUpdate(query: String) {
+        do {
+            try database.executeUpdate(query, values: nil)
+        } catch {
+            
+        }
+    }
 }

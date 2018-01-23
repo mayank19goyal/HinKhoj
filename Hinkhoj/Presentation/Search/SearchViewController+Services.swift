@@ -14,11 +14,11 @@ extension SearchViewController {
         self.showLoadingPopupLight()
         
         let urlPath = String(format: getDictResultByWord, word.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!)
-        BaseService.sharedInstance.executeService(urlPath: urlPath, httpMethodType: "GET", body: nil, completionHandler: { (result, error) in
+        BusinessLayerManager.sharedInstance.seacrhByWordWithDatabase(word: word, urlPath: urlPath, httpMethodType: "GET", body: nil, completionHandler: { (results, error) in
             
             DispatchQueue.main.async {
                 self.hideLoadingPopup()
-                if let result = result as? [String: Any] {
+                if let result = results {
                     if let arr = result["main_result"] as? NSMutableArray {
                         self.arrWordMeanings = arr
                     }
@@ -37,9 +37,6 @@ extension SearchViewController {
                     
                     self.tblViewSearch.reloadData()
                 }
-                if let error = error {
-                    self.simpleAlertWithTitleAndMessage(messageFromError(error))
-                }
             }
         })
     }
@@ -48,7 +45,7 @@ extension SearchViewController {
         self.showLoadingPopupLight()
         
         let urlPath = String(format: getSentenceUsage, word.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!)
-        BaseService.sharedInstance.executeService(urlPath: urlPath, httpMethodType: "GET", body: nil, completionHandler: { (result, error) in
+        BusinessLayerManager.sharedInstance.executeService(urlPath: urlPath, httpMethodType: "GET", body: nil, completionHandler: { (result, error) in
             
             DispatchQueue.main.async {
                 self.hideLoadingPopup()
@@ -66,6 +63,40 @@ extension SearchViewController {
     }
     
     func searchByWordOffline(_ word: String) {
+        self.showLoadingPopupLight()
+        BusinessLayerManager.sharedInstance.getTheWordMeaningFromDatabase(word: word) { (results, error) in
+            DispatchQueue.main.async {
+                self.hideLoadingPopup()
+                if error == nil {
+                    if let result = results {
+                        if let arr = result["main_result"] as? NSMutableArray {
+                            self.arrWordMeanings = arr
+                        }
+                        
+                        if let arr = result["eng2eng_result"] as? NSMutableArray {
+                            self.arrDefination = arr
+                        }
+                        
+                        if let arr = result["eng_synonym_list"] as? NSMutableArray {
+                            self.arrSynonym = arr
+                        }
+                        
+                        if let arr = result["eng_antonym_list"] as? NSMutableArray {
+                            self.arrAntonym = arr
+                        }
+                        
+                        self.tblViewSearch.reloadData()
+                    } else {
+                        self.getResultFromLocalDatabase(word: word)
+                    }
+                } else {
+                    self.getResultFromLocalDatabase(word: word)
+                }
+            }
+        }
+    }
+    
+    func getResultFromLocalDatabase(word: String) {
         if DBManager.shared.openDatabase() {
             let query = "select hword,eword,egrammar,hep.rid,ewi.eid from " +
                 "englishwordinfo as ewi inner join hindienglishpair " +

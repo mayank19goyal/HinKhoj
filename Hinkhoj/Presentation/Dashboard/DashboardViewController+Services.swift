@@ -17,7 +17,7 @@ extension DashboardViewController {
         formatter.dateFormat = "yyyy-MM-dd"
 
         let urlPath = String(format: wordOfDay, formatter.string(from: Date()))
-        BaseService.sharedInstance.executeService(urlPath: urlPath, httpMethodType: "GET", body: nil, completionHandler: { (result, error) in
+        BusinessLayerManager.sharedInstance.executeService(urlPath: urlPath, httpMethodType: "GET", body: nil, completionHandler: { (result, error) in
 
             DispatchQueue.main.async {
                 self.hideLoadingPopup()

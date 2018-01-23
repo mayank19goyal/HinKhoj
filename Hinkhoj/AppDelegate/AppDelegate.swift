@@ -52,6 +52,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         // Create Database instance
         _ = DBManager.shared.createDatabase()
         
+        if DBManager.shared.openDatabase() {
+            DBManager.shared.database.executeStatements("CREATE TABLE meaningcache (word string PRIMARY KEY DESC,meaning TEXT,access_time datetime default CURRENT_TIMESTAMP,is_complete TINYINT)")
+        }
+        
         return true
     }
 

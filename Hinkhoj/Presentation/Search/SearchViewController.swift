@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ReachabilitySwift
 
 enum WordMeaningSectionType {
     case meaning
@@ -87,15 +88,16 @@ class SearchViewController: BaseViewController, UITextFieldDelegate, UITableView
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        if let text = textField.text {
-            self.searchByWord(text)
-        }
         return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if let text = textField.text {
-            self.searchByWord(text)
+            if (Reachability()?.isReachable)! {
+                self.searchByWord(text)
+            } else {
+                self.searchByWordOffline(text)
+            }
         }
     }
     

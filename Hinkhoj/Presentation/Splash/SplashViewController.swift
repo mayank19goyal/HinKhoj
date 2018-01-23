@@ -18,7 +18,7 @@ class SplashViewController: UIViewController {
         imgAnimation.image = gif
         
         // Do any additional setup after loading the view.
-        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(SplashViewController.navigateToDashboard), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(SplashViewController.navigateToDashboard), userInfo: nil, repeats: false)
     }
     
     @objc func navigateToDashboard() {

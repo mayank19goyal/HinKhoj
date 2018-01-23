@@ -127,7 +127,7 @@ class SideMenuTableView: UIViewController, UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndexPath = indexPath
         
-        if indexPath.section == 1 {
+         if indexPath.section == 1 {
             let storyboard = UIStoryboard(name: "Hinkhoj", bundle: nil)
             if let vc = storyboard.instantiateViewController(withIdentifier: "myDictionaryViewController") as? MyDictionaryViewController {
                 SideMenuManager.menuLeftNavigationController?.pushViewController(vc, animated: true)
