@@ -107,6 +107,7 @@ extension SearchViewController {
                 if let word = arrTable[indexPath.row] as? String {
                     cell.lblMeaning.text = word
                     cell.lblFirstWord.text = String(word.first as! Character).capitalized
+                    cell.lblFirstWord.clipsToBounds = true
                     cell.lblFirstWord.layer.cornerRadius = cell.lblFirstWord.frame.size.width / 2
                 }
             }

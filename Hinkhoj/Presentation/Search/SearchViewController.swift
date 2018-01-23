@@ -67,6 +67,7 @@ class SearchViewController: BaseViewController, UITextFieldDelegate, UITableView
         scrollHeaderViewController?.designButtoninScrollView(arrButton: [WordMeaningSectionType.meaning.headerText(), WordMeaningSectionType.defination.headerText(), WordMeaningSectionType.sentenceExample.headerText(), WordMeaningSectionType.similarWords.headerText(), WordMeaningSectionType.oppositeWords.headerText()])
         txtFldSearch.text = navTitle
         tblViewSearch.separatorColor = UIColor.clear
+        tblViewSearch.resignFirstResponder()
     }
     
     override func viewWillAppear(_ animated: Bool) {

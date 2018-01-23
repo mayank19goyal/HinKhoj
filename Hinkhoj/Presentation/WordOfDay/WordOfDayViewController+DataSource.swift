@@ -30,6 +30,8 @@ extension WordOfDayViewController {
                 if let word = self.dictWordOfDay["word"] as? String {
                     cell.lblENgWord.text = word
                     cell.lblCharacter.text = String(word.first as! Character).capitalized
+                    cell.lblCharacter.clipsToBounds = true
+                    cell.lblCharacter.layer.cornerRadius = cell.lblCharacter.frame.size.width / 2
                 }
                 if let pronunciation = self.dictWordOfDay["pronunciation"] as? String {
                     cell.lblPronunciation.text = pronunciation

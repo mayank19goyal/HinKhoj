@@ -20,6 +20,8 @@
 		A81453701FDEBD8800E70F4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A814536F1FDEBD8800E70F4D /* GoogleService-Info.plist */; };
 		A84DA44920166A0F00EB8116 /* ScrollHeaderMyDictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84DA44820166A0F00EB8116 /* ScrollHeaderMyDictionaryViewController.swift */; };
 		A84DA44B2016E83200EB8116 /* MyDictionaryViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84DA44A2016E83200EB8116 /* MyDictionaryViewController+DataSource.swift */; };
+		A84DA44E2016FF5F00EB8116 /* MyDictionaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84DA44D2016FF5F00EB8116 /* MyDictionaryTableViewCell.swift */; };
+		A84DA4502017031400EB8116 /* MyDictionaryViewController+Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84DA44F2017031400EB8116 /* MyDictionaryViewController+Services.swift */; };
 		A85C12631FFFDB4400624D65 /* MyDictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85C12621FFFDB4400624D65 /* MyDictionaryViewController.swift */; };
 		A85E35E81FF141E700C38220 /* WordOfDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85E35E71FF141E700C38220 /* WordOfDayViewController.swift */; };
 		A85E35EA1FF1430A00C38220 /* WordOfDayViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85E35E91FF1430A00C38220 /* WordOfDayViewController+DataSource.swift */; };
@@ -112,6 +114,8 @@
 		A814536F1FDEBD8800E70F4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A84DA44820166A0F00EB8116 /* ScrollHeaderMyDictionaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollHeaderMyDictionaryViewController.swift; sourceTree = "<group>"; };
 		A84DA44A2016E83200EB8116 /* MyDictionaryViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyDictionaryViewController+DataSource.swift"; sourceTree = "<group>"; };
+		A84DA44D2016FF5F00EB8116 /* MyDictionaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDictionaryTableViewCell.swift; sourceTree = "<group>"; };
+		A84DA44F2017031400EB8116 /* MyDictionaryViewController+Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyDictionaryViewController+Services.swift"; sourceTree = "<group>"; };
 		A85C12621FFFDB4400624D65 /* MyDictionaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDictionaryViewController.swift; sourceTree = "<group>"; };
 		A85E35E71FF141E700C38220 /* WordOfDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordOfDayViewController.swift; sourceTree = "<group>"; };
 		A85E35E91FF1430A00C38220 /* WordOfDayViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WordOfDayViewController+DataSource.swift"; sourceTree = "<group>"; };
@@ -279,11 +283,21 @@
 			path = Splash;
 			sourceTree = "<group>";
 		};
+		A84DA44C2016FF4C00EB8116 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A84DA44D2016FF5F00EB8116 /* MyDictionaryTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		A85C12611FFFDB3400624D65 /* MyDictionary */ = {
 			isa = PBXGroup;
 			children = (
+				A84DA44C2016FF4C00EB8116 /* Cell */,
 				A85C12621FFFDB4400624D65 /* MyDictionaryViewController.swift */,
 				A84DA44A2016E83200EB8116 /* MyDictionaryViewController+DataSource.swift */,
+				A84DA44F2017031400EB8116 /* MyDictionaryViewController+Services.swift */,
 			);
 			path = MyDictionary;
 			sourceTree = "<group>";
@@ -848,6 +862,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A84DA44E2016FF5F00EB8116 /* MyDictionaryTableViewCell.swift in Sources */,
 				A8E9370B1FE0257A00F770C7 /* TableHeaderView.swift in Sources */,
 				A861C33F1FDD89A700CBB4F6 /* LoginViewController.swift in Sources */,
 				A8E936FD1FE0180700F770C7 /* String+Utility.swift in Sources */,
@@ -865,6 +880,7 @@
 				A8B4B2981FDEFC5C0056D308 /* iOSDevCenters+GIF.swift in Sources */,
 				A8B4B28C1FDEE8870056D308 /* BaseViewController.swift in Sources */,
 				A866393C1FEE2D4400A894B4 /* SearchViewController+DataSource.swift in Sources */,
+				A84DA4502017031400EB8116 /* MyDictionaryViewController+Services.swift in Sources */,
 				A85E35EA1FF1430A00C38220 /* WordOfDayViewController+DataSource.swift in Sources */,
 				A85E35EF1FF1446A00C38220 /* WODSecondTableViewCell.swift in Sources */,
 				A866394A1FEF5E1000A894B4 /* WordOfDayTableViewCell.swift in Sources */,

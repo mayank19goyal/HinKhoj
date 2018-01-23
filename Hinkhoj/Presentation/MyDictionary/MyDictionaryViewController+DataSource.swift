@@ -37,9 +37,11 @@ extension MyDictionaryViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if selecteTab == .searchHistory {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "definationCellIdentifier", for: indexPath)
-            if let cell = cell as? SearchTableViewCell {
-                
+            let cell = tableView.dequeueReusableCell(withIdentifier: "dictionaryCellIdentifier", for: indexPath)
+            if let cell = cell as? MyDictionaryTableViewCell {
+                let word = self.arrSearchHistory[indexPath.row]
+                cell.lblFirstWord.text = String(word.first as! Character).capitalized
+                cell.lblWord.text = word
             }
             
             cell.selectionStyle = .none
@@ -51,7 +53,16 @@ extension MyDictionaryViewController {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if selecteTab == .searchHistory {
-            
+            let storyboard = UIStoryboard(name: "Hinkhoj", bundle: nil)
+            if let vc = storyboard.instantiateViewController(withIdentifier: "searchViewController") as? SearchViewController {
+                _ = vc.view
+                if let word = arrSearchHistory[indexPath.row] as? String {
+                    vc.txtFldSearch.text = word
+                    vc.navTitle = word
+                    vc.searchByWord(word)
+                }
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
-    }
+    }    
 }

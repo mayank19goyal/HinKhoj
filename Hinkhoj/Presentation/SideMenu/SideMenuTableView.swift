@@ -130,6 +130,13 @@ class SideMenuTableView: UIViewController, UITableViewDelegate, UITableViewDataS
          if indexPath.section == 1 {
             let storyboard = UIStoryboard(name: "Hinkhoj", bundle: nil)
             if let vc = storyboard.instantiateViewController(withIdentifier: "myDictionaryViewController") as? MyDictionaryViewController {
+                if indexPath.row == 0 {
+                    vc.selecteTab = .saveWords
+                } else if indexPath.row == 1 {
+                    vc.selecteTab = .searchHistory
+                } else if indexPath.row == 2 {
+                    vc.selecteTab = .myCommunity
+                }
                 SideMenuManager.menuLeftNavigationController?.pushViewController(vc, animated: true)
             }
         }

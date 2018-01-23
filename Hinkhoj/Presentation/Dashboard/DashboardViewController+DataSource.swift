@@ -38,6 +38,7 @@ extension DashboardViewController {
                         if let date = format.date(from: strDate) {
                             format.dateFormat = "dd MMM"
                             cell.lblDate.text = format.string(from: date)
+                            cell.lblDate.clipsToBounds = true
                             cell.lblDate.layer.cornerRadius = 25.0
                             format.dateFormat = "MMM dd, yyyy"
                             cell.lblFullDate.text = format.string(from: date)

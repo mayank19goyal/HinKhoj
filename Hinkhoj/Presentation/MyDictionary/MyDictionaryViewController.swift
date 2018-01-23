@@ -35,7 +35,7 @@ class MyDictionaryViewController: UIViewController, ScrollHeaderMyDictionaryDele
 
     weak var scrollHeaderViewController: ScrollHeaderMyDictionaryViewController?
     var selecteTab: MyDictionarySectionType = .saveWords
-    var arrSearchHistory: NSMutableArray = NSMutableArray()
+    var arrSearchHistory = [String]()
     @IBOutlet weak var tblDictionary: UITableView!
     
     override func viewDidLoad() {
@@ -43,6 +43,10 @@ class MyDictionaryViewController: UIViewController, ScrollHeaderMyDictionaryDele
 
         // Do any additional setup after loading the view.
         scrollHeaderViewController?.designButtoninScrollView(arrButton: [MyDictionarySectionType.saveWords.headerText(), MyDictionarySectionType.searchHistory.headerText(), MyDictionarySectionType.myCommunity.headerText()])
+        
+        if self.selecteTab == .searchHistory {
+            self.getSearhHistory()
+        }
     }
 
     @IBAction func back_TouchUpInside(_ sender: Any) {
@@ -57,12 +61,14 @@ class MyDictionaryViewController: UIViewController, ScrollHeaderMyDictionaryDele
     }
     
     func selectedTab(sender: UIButton) {
+        self.arrSearchHistory.removeAll()
         switch sender.tag {
         case 500:
             selecteTab = .saveWords
             break;
         case 501:
             selecteTab = .searchHistory
+            self.getSearhHistory()
             break;
         case 502:
             selecteTab = .myCommunity
@@ -70,7 +76,7 @@ class MyDictionaryViewController: UIViewController, ScrollHeaderMyDictionaryDele
         default:
             break
         }
-        
+        self.tblDictionary.reloadData()
     }
     
     // MARK - Navigation
